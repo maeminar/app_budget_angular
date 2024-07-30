@@ -1,16 +1,30 @@
 <h1>Mes opérations</h1>
-<button type="button" class="btn btn-primary m-2">+ Ajouter</button>
-<button type="button" class="btn btn-primary m-2">- Supprimer</button>
+<button type="button" class="btn btn-primary m-2" (click)="addOperation()">
+  + Ajouter
+</button>
+<button type="button" class="btn btn-primary m-2" (click)="removeOperation()">
+  - Supprimer
+</button>
 <div class="container py-5">
   <table class="table table-bordered">
     <thead class="thead-light">
       <tr>
-        <th scope="col"><strong>Dates</strong></th>
-        <th scope="col"><strong>Types</strong></th>
-        <th scope="col"><strong>Catégories</strong></th>
+        <input type="checkbox" id="scales" name="scales" checked />
+        <th scope="col"><strong>Date</strong></th>
+        <th scope="col"><strong>Catégorie</strong></th>
+        <th scope="col"><strong>Titre</strong></th>
         <th scope="col"><strong>Montant</strong></th>
-        <th scope="col"><strong>Solde</strong></th>
+        <th scope="col"><strong>Type</strong></th>
       </tr>
     </thead>
+    <tbody>
+      <tr *ngFor="let operation of operations">
+        <td>{{ operation.date }}</td>
+        <td>{{ operation.categorie }}</td>
+        <td>{{ operation.titre }}</td>
+        <td>{{ operation.montant }}</td>
+        <td>{{ operation.type }}</td>
+      </tr>
+    </tbody>
   </table>
 </div>
