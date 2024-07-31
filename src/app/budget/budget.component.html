@@ -1,12 +1,8 @@
-<h1>Mes opérations</h1>
+<h1 class="text-center m-4">Mes opérations</h1>
 <button type="button" class="btn btn-primary m-2" (click)="addOperation()">
   + Ajouter
 </button>
-<button
-  type="button"
-  class="btn btn-primary m-2"
-  (click)="removeOperation(index)"
->
+<button type="button" class="btn btn-primary m-2" (click)="removeOperation()">
   - Supprimer
 </button>
 <div class="container py-5">
@@ -19,6 +15,7 @@
         <th scope="col"><strong>Titre</strong></th>
         <th scope="col"><strong>Montant</strong></th>
         <th scope="col"><strong>Type</strong></th>
+        <th></th>
       </tr>
     </thead>
     <tbody>
@@ -31,6 +28,9 @@
         <td>{{ operation.titre }}</td>
         <td>{{ operation.montant }}</td>
         <td>{{ operation.type }}</td>
+        <td>
+          <button type="button" class="btn btn-outline-dark">Modifier</button>
+        </td>
       </tr>
     </tbody>
   </table>

@@ -28,12 +28,11 @@ export class BudgetComponent {
       this.operations.push(operation);
       this.showCreateNewBudget = false;
     }
-    
-    index = 0;
-    removeOperation(index: number) {
-      const selectedOperation = this.operations[index];
-      const selectedIndex = this.operations.indexOf(selectedOperation);
+  
+    removeOperation() {
+      this.operations.splice(0, 1);
     }
 
 
 }
+
