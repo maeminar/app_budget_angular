@@ -1,10 +1,11 @@
-import { NgFor } from '@angular/common';
+import { NgFor, NgIf } from '@angular/common';
 import { Component } from '@angular/core';
+import { CreateNewBudgetComponent } from '../create-new-budget/create-new-budget.component';
 
 @Component({
   selector: 'app-budget',
   standalone: true,
-  imports: [NgFor],
+  imports: [NgFor,CreateNewBudgetComponent, NgIf],
   templateUrl: './budget.component.html',
   styleUrls: ['./budget.component.css']
 })
@@ -17,19 +18,22 @@ export class BudgetComponent {
     { date: '05/10/2023', categorie: 'Éducation', titre: 'Cours en ligne', montant: '-100.00 €', type: 'Sortie' }
   ];
 
+  showCreateNewBudget = false;
+
   addOperation() {
-      const newOperation = {
-        date: '', 
-        categorie: '', 
-        titre: '', 
-        montant: '', 
-        type: '' 
-      };
-      this.operations.push(newOperation);
-      console.log(newOperation);
+    this.showCreateNewBudget = true;
     }
 
-  removeOperation(index: number) {
-    this.operations.splice(index, 1);
-  }
+    onOperationAdded(operation: any) {
+      this.operations.push(operation);
+      this.showCreateNewBudget = false;
+    }
+    
+    index = 0;
+    removeOperation(index: number) {
+      const selectedOperation = this.operations[index];
+      const selectedIndex = this.operations.indexOf(selectedOperation);
+    }
+
+
 }

@@ -2,14 +2,18 @@
 <button type="button" class="btn btn-primary m-2" (click)="addOperation()">
   + Ajouter
 </button>
-<button type="button" class="btn btn-primary m-2" (click)="removeOperation()">
+<button
+  type="button"
+  class="btn btn-primary m-2"
+  (click)="removeOperation(index)"
+>
   - Supprimer
 </button>
 <div class="container py-5">
   <table class="table table-bordered">
     <thead class="thead-light">
       <tr>
-        <input type="checkbox" id="scales" name="scales" checked />
+        <th scope="col"><strong></strong></th>
         <th scope="col"><strong>Date</strong></th>
         <th scope="col"><strong>Catégorie</strong></th>
         <th scope="col"><strong>Titre</strong></th>
@@ -19,6 +23,9 @@
     </thead>
     <tbody>
       <tr *ngFor="let operation of operations">
+        <td>
+          <input type="checkbox" />
+        </td>
         <td>{{ operation.date }}</td>
         <td>{{ operation.categorie }}</td>
         <td>{{ operation.titre }}</td>
@@ -27,4 +34,10 @@
       </tr>
     </tbody>
   </table>
+</div>
+
+<div *ngIf="showCreateNewBudget">
+  <app-create-new-budget
+    (operationAdded)="onOperationAdded($event)"
+  ></app-create-new-budget>
 </div>
