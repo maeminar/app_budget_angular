@@ -12,7 +12,7 @@ import { ChartConfiguration, ChartData, ChartOptions, ChartType } from 'chart.js
 })
 export class ChartsComponent {
   data: ChartData<'bar'> = {
-    labels: ['Alimentation', 'Transports', 'Loisirs', 'Santé', 'Education'],
+    labels: ['Alimentation', 'Transports', 'Loisirs', 'Santé', 'Santé'],
     datasets: [{
     
       data: this.getData()
@@ -25,10 +25,10 @@ export class ChartsComponent {
 
 //Diagramme en ligne
 public lineChartData: ChartData<'line'> = {
-  labels: ['January', 'February', 'March', 'April', 'May', 'June', 'July'],
+  labels: ['Alimentation', 'Transports', 'Loisirs', 'Santé', 'Santé'],
   datasets: [
-    { data: [65, 59, 80, 81, 56, 55, 40], label: 'Series A' },
-    { data: [28, 48, 40, 19, 86, 27, 90], label: 'Series B' }
+    { data: [65, 59, 80, 81, 56], label: 'Series A' },
+    { data: [28, 48, 40, 19, 86], label: 'Series B' }
   ]
 };
 public lineChartOptions: ChartOptions<'line'> = {
@@ -38,7 +38,7 @@ public lineChartType: 'line' = 'line';
 
 // Diagramme en anneau
 public doughnutChartData: ChartData<'doughnut'> = {
-  labels: ['A traiter', 'En cours', 'Terminé'],
+  labels: ['Alimentation', 'Education', 'Santé'],
   datasets: [
     {
       data: [300, 500, 100],
