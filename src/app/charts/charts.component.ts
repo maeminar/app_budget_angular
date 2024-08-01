@@ -12,7 +12,7 @@ import { ChartConfiguration, ChartData, ChartOptions, ChartType } from 'chart.js
 })
 export class ChartsComponent {
   data: ChartData<'bar'> = {
-    labels: ['January', 'February', 'March', 'April', 'May', 'June'],
+    labels: ['Alimentation', 'Transports', 'Loisirs', 'Santé', 'Education'],
     datasets: [{
     
       data: this.getData()
@@ -20,7 +20,7 @@ export class ChartsComponent {
   }
 
   getData(){
-    return [40, 10, 60, 40, 50, 30]
+    return [-50, -20, 60, -30, 10, 100]
   }
 
 //Diagramme en ligne
